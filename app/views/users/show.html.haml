@@ -1,0 +1,9 @@
+%ol
+  - @books.each do |b|
+    %h3
+      = succeed(',') do
+        = b.title
+      = b.author
+    %p
+      = b.comment
+    %hr

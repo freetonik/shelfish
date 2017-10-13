@@ -1,0 +1,13 @@
+%h2 all books
+
+- @books.each do |book|
+  %h3
+    = succeed(',') do
+      = b.title
+    = b.author
+  %p
+    = b.comment
+    = surround('(',')') do
+      %i= link_to b.user.nickname, user_path(b.user)
+  %hr
+    
