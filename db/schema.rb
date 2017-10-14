@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171012171653) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "books", force: :cascade do |t|
     t.string "isbn"
     t.string "title"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20171012171653) do
     t.string "author"
     t.date "date"
     t.text "comment"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id", "created_at"], name: "index_books_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
@@ -44,4 +47,5 @@ ActiveRecord::Schema.define(version: 20171012171653) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "books", "users"
 end

@@ -10,6 +10,14 @@ compose-stop:
 compose-kill:
 	docker-compose kill	
 
+compose-rails:
+	docker-compose run web bin/rails $(T)
+
+compose-db-prepare:
+	make compose-rails T=db:create || true
+	make compose-rails T=db:structure:load || true
+	make compose-rails T=db:migrate
+	
 # build:
 # 	docker build -t shelfish .
 
