@@ -10,22 +10,32 @@
   %body
     .notice= notice
     .alert= alert
-
-    .header
-      .brand 
-        = link_to "Shel.fi", root_path
-      .user_meta
-        - if user_signed_in?
-          = link_to current_user.email, user_path(current_user)
-          = link_to "+", new_book_path
-          \/ 
-          = link_to "sign out", destroy_user_session_path, :method => :delete
-
-          = link_to "edit", edit_user_registration_path
-        - else
-          = link_to "sign in", user_session_path
-          OR 
-          = link_to "sign up", new_user_registration_path
-    = yield
-
     
+    .container
+      .header
+        .brand 
+          = link_to "Shel.fi", root_path
+        .user_meta
+          - if user_signed_in?
+            = link_to current_user.nickname, user_path(current_user)
+            = link_to "+", new_book_path, class: "btn ml"
+          - else
+            = link_to "log in", user_session_path
+            or
+            = link_to "sign up", new_user_registration_path
+      .main
+        = yield
+      .footer
+        .brand Shel.fi — your peaceful bookshelf
+        .meta
+          - if user_signed_in?
+            = link_to "edit profile", edit_user_registration_path
+            \/
+            = link_to "sign out", destroy_user_session_path, :method => :delete
+          - else
+            = link_to "log in", user_session_path
+            or
+            = link_to "sign up", new_user_registration_path
+
+
+      

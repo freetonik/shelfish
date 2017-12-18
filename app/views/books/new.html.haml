@@ -3,10 +3,10 @@
 = simple_form_for @book, url: books_path, local: true do |f|
   = f.input :title, required: true
   = f.input :author, required: true
-  = f.input :isbn, label: 'ISBN (Optional. Helps with metadata.)', class: 'optional'
-  = f.input :comment, required: true
+  / = f.input :isbn, label: 'ISBN (Optional. Helps with metadata.)', class: 'optional'
+  = f.input :comment, required: true, label: 'My thoughts about it'
 
-  = f.button :submit
+  = f.button :submit, 'Save'
 
 %div
   %ol#received_metadata  

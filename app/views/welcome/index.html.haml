@@ -1,13 +1,13 @@
-%h1 Latest good books
-
+%h1 Latest books
 
 - @books.each do |b|
-  %h3
-    = succeed(',') do
-      = b.title
-    = b.author
+  = link_to book_path(b), class: "nodecor" do
+    %h3
+      = succeed(',') do
+        = b.title
+      %i= b.author
   %p
     = b.comment
     = surround('(',')') do
       %i= link_to b.user.nickname, user_path(b.user)
-  %hr
+  

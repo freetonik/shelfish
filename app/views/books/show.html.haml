@@ -1,4 +1,20 @@
-%p= @book.title
-%p= @book.author
-%p= @book.comment
-%p= @book.user.email
+%h1= @book.title
+%h3.mt-0
+  by
+  = @book.author
+
+%p
+  = @book.comment
+  - if current_user == @book.user
+    %i
+      = surround('(',')') do
+        = link_to "edit", edit_book_path(@book)
+
+%p
+  %i
+    from
+    = link_to user_path(@book.user) do
+      = succeed('\'s') do
+        = @book.user.nickname
+      bookshelf
+      

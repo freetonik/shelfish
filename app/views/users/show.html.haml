@@ -1,9 +1,18 @@
-%ol
-  - @books.each do |b|
+%h1
+  = succeed('\'s') do
+    = @user.nickname
+  bookshelf
+
+- @books.each do |b|
+  = link_to book_path(b), class: "nodecor" do
     %h3
       = succeed(',') do
         = b.title
       = b.author
-    %p
-      = b.comment
-    %hr
+  %p
+    = b.comment
+    - if current_user == b.user
+      %i
+        = surround('(',')') do
+          = link_to "edit", edit_book_path(b)
+  %hr

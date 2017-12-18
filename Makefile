@@ -4,6 +4,10 @@ compose-build:
 compose-up:
 	docker-compose up -d web
 
+# non-detached mode
+compose-up-bash:
+	docker-compose up web
+
 compose-stop:
 	docker-compose stop
 

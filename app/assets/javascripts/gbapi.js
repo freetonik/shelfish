@@ -7,7 +7,7 @@ $(document).ready(function() {
     var title_input_data = $(this).val()
     if (title_input_data.length > 0) {
       
-      var url = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyCO8zIG3fuQpeOuS-RB-C2L6gIbsvYESpw&fields=items(volumeInfo(title,authors))&q=" + title_input_data;
+      var url = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyB1JijDSBqO4ICNdXiFT_bWEV7rOeW2M2s&fields=items(volumeInfo(title,authors))&q=" + title_input_data;
     
       $.getJSON( url, function( data ) {
         suggestedItems = [];
