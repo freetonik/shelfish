@@ -7,7 +7,7 @@
         = b.title
       %i= b.author
   %p
-    = b.comment
+    = markdown b.comment
     = surround('(',')') do
       %i= link_to b.user.nickname, user_path(b.user)
   

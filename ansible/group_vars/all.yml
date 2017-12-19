@@ -1,0 +1,7 @@
+ansible_python_interpreter: "/usr/bin/env python3"
+docker_install_compose: no
+
+database_url: 'postgres://{{ shelfish_vault_db_username }}:{{ shelfish_vault_db_password }}@{{ shelfish_vault_db_host }}/{{ shelfish_vault_db_name }}'
+
+shelfish_run_user_home: /home/ubuntu
+shelfish_env_file: "{{ shelfish_run_user_home }}/.env.production"

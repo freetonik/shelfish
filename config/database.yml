@@ -6,6 +6,13 @@ default: &default
   password:
   pool: 5
 
+production:
+ adapter: postgresql
+ encoding: unicode
+ pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 3 %>
+ reaping_frequency: 10
+ url: <%= ENV['DATABASE_URL'] %>
+
 development:
   <<: *default
   database: myapp_development

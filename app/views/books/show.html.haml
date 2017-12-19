@@ -4,7 +4,7 @@
   = @book.author
 
 %p
-  = @book.comment
+  = markdown @book.comment
   - if current_user == @book.user
     %i
       = surround('(',')') do
@@ -13,7 +13,7 @@
 %p
   %i
     from
-    = link_to user_path(@book.user) do
+    = link_to user_path @book.user do
       = succeed('\'s') do
         = @book.user.nickname
       bookshelf
